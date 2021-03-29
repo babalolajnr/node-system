@@ -1,3 +1,7 @@
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
 public class Node {
     private String nodeIPAddress;
     private String nodeID;
@@ -13,7 +17,17 @@ public class Node {
     }
 
     public boolean sendMessage(String message) {
-        // code here
+
+        try {
+            InetAddress address = InetAddress.getByName("localhost");
+            DatagramPacket packet = new DatagramPacket(message.getBytes(), message.getBytes().length, address, 4000);
+            DatagramSocket socket = new DatagramSocket(10000);
+
+            socket.send(packet);
+            socket.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return true;
     }
 
@@ -40,10 +54,14 @@ public class Node {
     }
 
     public String getNodeIPAddress() {
-        return "";
+        return this.nodeIPAddress;
     }
 
     public void setMaxJobs(int maxJobs) {
+        this.maxJobs = maxJobs;
+    }
 
+    public String getNodeID(Node node) {
+        return node.nodeID;
     }
 }

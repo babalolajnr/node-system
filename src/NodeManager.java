@@ -34,7 +34,7 @@ public class NodeManager {
     public Node findNode(String nodeID) {
         for (int i = 0; i < availableNodes.size(); i++) {
             Node theNode = (Node) availableNodes.get(i);
-            if (theNode.getNodeID().equals(nodeID))
+            if (theNode.getNodeID(theNode).equals(nodeID))
                 return theNode;
         }
         return null;

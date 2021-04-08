@@ -20,6 +20,7 @@ public class Node {
 
         try {
             InetAddress address = InetAddress.getByName("localhost");
+            message = message + ", " + nodeIPAddress + ", " + nodePortNumber + ", " + nodeID;
             DatagramPacket packet = new DatagramPacket(message.getBytes(), message.getBytes().length, address, 4000);
             DatagramSocket socket = new DatagramSocket(10000);
 

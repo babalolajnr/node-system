@@ -10,6 +10,9 @@ public class App {
 
         Scanner scan = new Scanner(System.in);
 
+        System.out.println("Send message");
+        message = scan.nextLine();
+
         System.out.println("Enter Node IP address");
         nodeIPAddress = scan.nextLine();
 
@@ -29,9 +32,6 @@ public class App {
         nodeManager.registerNewNode(node);
 
         System.out.println("Node created!");
-
-        System.out.println("Send message");
-        message = scan.nextLine();
 
         System.out.println("Sending message ...");
         node.sendMessage(message);
